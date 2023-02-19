@@ -38,7 +38,7 @@ const Home: React.FC<Prop> = ({ forecast }: Prop) => {
 
 export default Home;
 
-export async function getServerSideProps() {
+export const getServerSideProps = async () => {
   const response = await fetch(API_URL);
   const data: Weather = await response.json();
 
@@ -47,4 +47,4 @@ export async function getServerSideProps() {
       forecast: data.properties.periods[0].detailedForecast,
     },
   };
-}
+};

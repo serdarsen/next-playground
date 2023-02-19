@@ -23,7 +23,7 @@ const About: React.FC<Prop> = ({ repoCount }: Prop) => {
 
 export default About;
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   const response = await fetch(API_URL);
   const data: GithubData = await response.json();
 
@@ -33,4 +33,4 @@ export async function getStaticProps() {
     },
     revalidate: 10,
   };
-}
+};
